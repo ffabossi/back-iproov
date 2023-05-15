@@ -17,6 +17,7 @@ app.post('/enrol-token', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(error.response.status).send(error.response.data);
+    
   }
 });
 
