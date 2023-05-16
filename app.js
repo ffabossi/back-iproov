@@ -1,10 +1,17 @@
 const axios = require("axios");
 const express = require("express");
 const bodyParser = require("body-parser");
+const helmet = require("helmet");
 
 const app = express();
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get("/", (req, res) => {
   res.send("Hello, world!");
