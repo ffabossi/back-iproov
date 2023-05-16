@@ -24,7 +24,7 @@ app.post("/enrol-token", async (req, res) => {
 });
 
 const startServer = () => {
-  const port = 3000;
+  const port = process.env.PORT || 3000;
   try {
     console.log(`Server running on ${port}`);
     app.listen(port, () => {
