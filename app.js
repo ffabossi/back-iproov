@@ -10,7 +10,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader('Content-Type', 'application/json');
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-openrtb-version,Content-Type,*"
+  );
+  res.header("X-Frame-Options", "ALLOWALL");
+  res.setHeader("Content-Type", "application/json");
   next();
 });
 
